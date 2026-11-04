@@ -1,0 +1,84 @@
+# All paths are relative to this file. Supply the released weights separately.
+name = "my_task"
+init_params = "../checkpoints/airoa-0_pretrained"
+assets_dir = "../outputs/assets"
+checkpoint_dir = "../outputs/checkpoints"
+
+[data]
+repo_id = "your_org/your_task"
+state_key = "observation.state"
+action_key = "action"
+state_dim = 20
+action_dim = 20
+prompt_source = "task"
+instruction = "Complete the task."
+# Replace these descriptions with the actual prepared-data convention.
+state_representation = "REPLACE: dimensions, coordinate frames, units, rotation and gripper convention"
+action_representation = "REPLACE: dimensions, coordinate frames, units, absolute/delta and gripper convention"
+# Empty validity key assumes the supplied episodes have already passed QC.
+history_valid_key = ""
+history_time_key = "timestamp"
+
+[data.cameras]
+left_wrist_0_rgb = "observation.images.left_wrist"
+right_wrist_0_rgb = "observation.images.right_wrist"
+
+[model]
+action_horizon = 20
+max_token_len = 200
+nuf_chunk_size = 0
+nuf_buffer_size = 0
+
+[proprio_history]
+# Set slots = 0 to disable measured-state history.
+slots = 10
+rates_hz = [5.0, 8.0, 10.0, 12.0, 15.0]
+dropout = 0.25
+seed = 42
+memory_tokens = 4
+hidden_dim = 256
+prefix_scale = 0.1
+
+[training]
+batch_size = 64
+steps = 20000
+learning_rate = 0.000005
+warmup_steps = 500
+save_interval = 5000
+log_interval = 100
+num_workers = 16
+fsdp_devices = 8
+seed = 42
+ema = true
+ema_decay = 0.99
+wandb = true
+wandb_project = "airoa-0-post-training"
+
+[visual_budget]
+enabled = true
+budget = 0.9
+tau = 0.805
+floor = 0.1
+floor_end = 0.02
+schedule_steps = 20000
+attention_warmup_steps = 500
+budget_weight = 0.1
+
+[auxiliary]
+weight = 0.01
+max_tokens = 32
+
+[stage]
+enabled = true
+weight = 0.1
+max_tokens = 48
+
+# Example only: replace the instruction, stage texts and PA mapping together.
+[labels]
+task_instruction = "Put the object in the tray and close the lid."
+stages = ["Pick up the object.", "Place the object in the tray.", "Close the lid."]
+
+[labels.pa_to_stage]
+"Pick up the object." = 0
+"Place the object in the tray." = 1
+"Close the lid." = 2

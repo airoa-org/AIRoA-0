@@ -1,0 +1,61 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the AIRoA-0 technical report."
+title: "AIRoA-0 (A-0) post-training"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/airoa-org/AIRoA-0"
+url: "https://a-0.airoa.io"
+authors:
+  - name: "AI Robot Association (AIRoA)"
+preferred-citation:
+  type: report
+  title: "AIRoA-0: Long-Horizon, Precise, Cross-Embodiment Manipulation from Handheld Data"
+  institution:
+    name: "AIRoA"
+  year: 2026
+  month: 11
+  identifiers:
+    - type: other
+      value: "arXiv:2611.03815"
+  url: "https://arxiv.org/abs/2611.03815"
+  authors:
+    - given-names: "Yueh-Hua"
+      family-names: "Wu"
+    - given-names: "Kei"
+      family-names: "Ota"
+    - given-names: "Hanlong"
+      family-names: "Li"
+    - given-names: "Hayata"
+      family-names: "Yuasa"
+    - given-names: "Jason"
+      family-names: "Wang"
+    - given-names: "Kengo"
+      family-names: "Ikeuchi"
+    - given-names: "Kensuke"
+      family-names: "Chiyoma"
+    - given-names: "Makoto"
+      family-names: "Sugiura"
+    - given-names: "Masafumi"
+      family-names: "Takahashi"
+    - given-names: "Masatoshi"
+      family-names: "Tateno"
+    - given-names: "Naoaki"
+      family-names: "Kanazawa"
+    - given-names: "Nicola"
+      family-names: "Scianca"
+    - given-names: "Petr"
+      family-names: "Khrapchenkov"
+    - given-names: "Satoshi"
+      family-names: "Otsubo"
+    - given-names: "Takehiko"
+      family-names: "Ohkawa"
+    - given-names: "Takuya"
+      family-names: "Okubo"
+    - given-names: "Tatsuya"
+      family-names: "Matsushima"
+    - given-names: "Yuki"
+      family-names: "Noguchi"
+    - given-names: "Yuma"
+      family-names: "Shin"
+    - given-names: "Zixuan"
+      family-names: "Zhong"

@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airoa-0-post-training"
+version = "0.1.0"
+description = "Post-training code for the AIRoA-0 (A-0) vision-language-action model"
+readme = "README.md"
+authors = [{ name = "AI Robot Association (AIRoA)", email = "ext-oss@airoa.org" }]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY.md", "vendor/openpi/LICENSE", "vendor/openpi/LICENSE_GEMMA.txt"]
+requires-python = ">=3.11"
+dependencies = ["jax==0.5.3", "numpy>=2.0,<2.3"]
+
+[project.urls]
+Repository = "https://github.com/airoa-org/AIRoA-0"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+train = [
+    "jax[cuda12]==0.5.3",
+    "flax==0.10.2",
+    "optax==0.2.4",
+    "orbax-checkpoint==0.11.13",
+    "tensorstore==0.1.74",
+    "ml-dtypes==0.4.1",
+    "torch==2.7.1",
+    "torchvision==0.22.1",
+    "torchcodec==0.4.0",
+    "lerobot==0.4.4",
+    "datasets>=4.0,<4.2",
+    "huggingface-hub>=0.34.2,<0.36",
+    "pyarrow==20.0.0",
+    "av>=15,<16",
+    "safetensors==0.5.3",
+    "augmax==0.4.1",
+    "einops==0.8.1",
+    "etils[epath]==1.12.2",
+    "fsspec[gcs]==2025.3.0",
+    "sentencepiece==0.2.0",
+    "pillow==11.2.1",
+    "jaxtyping==0.2.36",
+    "beartype==0.19.0",
+    "treescope==0.1.9",
+    "tqdm-loggable==0.2",
+    "tyro==0.9.22",
+    "wandb>=0.24,<0.25",
+    "pydantic==2.11.5",
+    "numpydantic==1.6.9",
+    "filelock==3.18.0",
+    "typing-extensions>=4.12.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src", "vendor/openpi/src", "vendor/openpi/packages/openpi-client/src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "vendor/openpi/src", "vendor/openpi/packages/openpi-client/src"]

@@ -1,0 +1,37 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+venv/
+
+# Python and build outputs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Local datasets, model weights, and run outputs
+data/
+datasets/
+checkpoints/
+outputs/
+runs/
+wandb/
+logs/
+*.log
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
